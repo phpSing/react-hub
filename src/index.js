@@ -5,23 +5,33 @@ import {
   Route,
   Link
 } from 'react-router-dom'
-// pages
-import Home from './pages/Home'
-import About from './pages/About'
+
+import { RouteWithSubRoutes, routes } from './routes'
+
+
+class App extends React.Component {
+
+  render () {
+    return (
+      <Router>
+        <div>
+          <ul>
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/about">About</Link></li>
+          </ul>
+
+          <hr/>
+          {routes.map((route, i) => {
+            return (<RouteWithSubRoutes key={i} {...route}/>)
+          })}
+
+        </div>
+      </Router>
+    )
+  }
+} 
 
 ReactDOM.render(
-  <Router>
-    <div>
-      <ul>
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/about">About</Link></li>
-      </ul>
-
-      <hr/>
-
-      <Route exact path="/" component={Home}/>
-      <Route path="/about" component={About}/>
-    </div>
-  </Router>,
+  <App />,
   document.getElementById('app')
 )
