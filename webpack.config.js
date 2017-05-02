@@ -65,14 +65,7 @@ module.exports = {
 
   context: path.resolve(__dirname, 'src'),
 
-  entry: {
-    main: './index.js'
-    // vendor: [
-    //   'react',
-    //   'react-dom',
-    //   'react-router-dom'
-    // ]
-  },
+  entry: ["babel-polyfill", './index.js'],
 
   output: {
     path: __dirname + "/dist",
