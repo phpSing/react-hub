@@ -19,7 +19,7 @@ const commonPlugin = [
     manifest: require('./lib/react-manifest.json')
   }),
   new webpack.DefinePlugin({
-    'process.env.NODE_ENV': JSON.stringify(isDev ? 'development' : 'production')
+    'process.env.NODE_ENV': JSON.stringify('production') // isDev ? 'development' : 
   }),
   // new webpack.optimize.CommonsChunkPlugin({
   //   name: 'vendor',
@@ -65,8 +65,24 @@ module.exports = {
 
   context: path.resolve(__dirname, 'src'),
 
-  entry: ["babel-polyfill", './index.js'],
-
+  entry: ['./index.js'],
+  // entry: {
+  //   main: isDev ? ['react-hot-loader/patch', 'main.js'] : ['main.js'],
+  //   vendor: [
+  //     'babel-polyfill',
+  //     'seamless-immutable',
+  //     'react',
+  //     'react-dom',
+  //     'react-router',
+  //     'redux',
+  //     'react-redux',
+  //     'redux-thunk',
+  //     'react-router-redux',
+  //     'isomorphic-fetch',
+  //     'js-cookie',
+  //     'moment'
+  //   ]
+  // },
   output: {
     path: __dirname + "/dist",
     publicPath: '/',
@@ -93,6 +109,10 @@ module.exports = {
       },
       {
         test: /\.scss$/,
+        loader: 'style-loader!css-loader!sass-loader'
+      },
+      {
+        test: /\.css$/,
         loader: 'style-loader!css-loader!sass-loader'
       }
     ]

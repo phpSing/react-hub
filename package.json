@@ -6,7 +6,7 @@
   "scripts": {
     "dll": "webpack --config vendor-bundles.webpack.config.js",
     "dev": "webpack-dev-server --colors --config webpack.config.js",
-    "build": "rm -rf ./dist && NODE_ENV=\"production\" webpack --config webpack.config.js"
+    "build": "rm -rf ./dist && rm -rf ./lib  && npm run dll && NODE_ENV=\"production\" webpack --config webpack.config.js"
   },
   "repository": {
     "type": "git",
@@ -47,8 +47,9 @@
     "webpack-dev-server": "^2.4.5"
   },
   "dependencies": {
-    "babel-polyfill": "^6.23.0",
     "bundle-loader": "^0.5.5",
+    "moment": "^2.18.1",
+    "prop-types": "^15.5.8",
     "react": "^15.5.4",
     "react-dom": "^15.5.4"
   }

@@ -8,7 +8,7 @@ import {
 import Bundle from './Bundle'
 // pages
 import loadHome from './pages/Home'
-import loadAbout from './pages/About'
+import loadCalendar from './pages/Calendar'
 
 const Home = () => (
   <Bundle load={loadHome}>
@@ -16,9 +16,9 @@ const Home = () => (
   </Bundle>
 )
 
-const About = () => (
-  <Bundle load={loadAbout}>
-    {(About) => <About />}
+const Calendar = () => (
+  <Bundle load={loadCalendar}>
+    {(Calendar) => <Calendar />}
   </Bundle>
 )
 
@@ -29,8 +29,8 @@ export const routes = [
     component: Home,
   },
   { 
-    path: '/about',
-    component: About,
+    path: '/components/calendar',
+    component: Calendar,
   },
 ]
 // wrap <Route> and use this everywhere instead, then when

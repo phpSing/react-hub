@@ -1,9 +1,10 @@
 module.exports = {
   historyApiFallback: true,
   port: 18080,
-  compress: false,
+  compress: true,
   inline: true,
   hot: false,
+  // https: true,
   host: 'tim.haiziwang.com',
   disableHostCheck: true,
   stats: {
